@@ -1,49 +1,53 @@
-import React, {Component} from 'react';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
+import React, { Component } from 'react';
 import {
-    AppRegistry,
-    WebView,
-    StatusBar,
-    StyleSheet,
-    View,
-    BackHandler
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
 
-const styles = StyleSheet.create({
-                                     container: {
-                                         flex: 1,
-                                         backgroundColor: '#1FB9FF',
-                                         borderWidth: 0
-                                     },
-                                 });
-
-const WEB_VIEW_REF = "webView";
-
-class HandleBarsDocApp extends Component {
-
-    componentDidMount() {
-        BackHandler.addEventListener('hardwareBackPress', this.backHandler);
-    }
-
-    componentWillUnmount() {
-        BackHandler.removeEventListener('hardwareBackPress', this.backHandler);
-    }
-
-    backHandler = () => {
-        this.refs[WEB_VIEW_REF].goBack();
-        return true;
-    };
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <StatusBar hidden={true}></StatusBar>
-                <WebView
-                    ref={WEB_VIEW_REF}
-                    source={ {uri : 'http://handlebars.cn/'}}
-                />
-            </View>
-        );
-    }
+export default class HandlebarsDocApp extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Double tap R on your keyboard to reload,{'\n'}
+          Shake or press menu button for dev menu
+        </Text>
+      </View>
+    );
+  }
 }
 
-AppRegistry.registerComponent('HandleBarsDocApp', () => HandleBarsDocApp);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent('HandlebarsDocApp', () => HandlebarsDocApp);

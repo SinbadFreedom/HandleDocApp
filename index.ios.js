@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-export default class HandleDocApp extends Component {
+export default class HandlebarsDocApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('HandleDocApp', () => HandleDocApp);
+AppRegistry.registerComponent('HandlebarsDocApp', () => HandlebarsDocApp);
